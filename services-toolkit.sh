@@ -74,5 +74,20 @@ if ! test -e "$SERVICE_PATH"; then
     fi
 fi
 
+echo "Service name: $SERVICE_NAME"
+echo "Service path: $SERVICE_PATH"
+echo "Service generate API: $SERVICE_GENERATE_API"
+echo "Service generate impl: $SERVICE_GENERATE_IMPL"
+
+RECIPE_PATH="Services-Recipes/$SERVICE_RECIPE/recipe.sh"
+
+if ! test -e "$RECIPE_PATH"; then
+
+    echo "ERROR: The '$SERVICE_RECIPE' recipe not found at '$RECIPE_PATH'"
+    exit 1
+fi
+
+echo "Service recipe: $SERVICE_RECIPE"
+
 echo "ERROR: Services Toolkit, to be implemented"
 exit 1
