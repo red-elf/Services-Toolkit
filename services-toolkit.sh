@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "ERROR: Services Toolkit, To be implemented"
+echo "ERROR: Services Toolkit, to be implemented"
 exit 1
