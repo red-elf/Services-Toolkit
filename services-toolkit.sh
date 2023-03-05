@@ -79,20 +79,27 @@ echo "Service path: $SERVICE_PATH"
 echo "Service generate API: $SERVICE_GENERATE_API"
 echo "Service generate impl: $SERVICE_GENERATE_IMPL"
 
-RECIPE_PATH="Services-Recipes/$SERVICE_RECIPE/recipe.sh"
+RECIPE_PATH_API="Services-Recipes/$SERVICE_RECIPE/recipe_api.sh"
+RECIPE_PATH_IMPL="Services-Recipes/$SERVICE_RECIPE/recipe_impl.sh"
 
-if ! test -e "$RECIPE_PATH"; then
+if ! test -e "$RECIPE_PATH_API"; then
 
-    echo "ERROR: The '$SERVICE_RECIPE' recipe not found at '$RECIPE_PATH'"
+    echo "ERROR: The '$RECIPE_PATH_API' API recipe not found at '$RECIPE_PATH_API'"
     exit 1
 fi
 
-echo "Service recipe: $SERVICE_RECIPE"
+if ! test -e "$RECIPE_PATH_IMPL"; then
 
-PATH_API="$SERVICE_PATH/API"
-PATH_IMPL="$SERVICE_PATH/Impl"
+    echo "ERROR: The '$RECIPE_PATH_IMPL' impl. recipe not found at '$RECIPE_PATH_IMPL'"
+    exit 1
+fi
+
+echo "Service API recipe: $RECIPE_PATH_API"
+echo "Service impl. recipe: $RECIPE_PATH_IMPL"
 
 if "$SERVICE_GENERATE_API" = true; then
+
+    PATH_API="$SERVICE_PATH/API"
 
     if ! test -e "$PATH_API"; then
 
@@ -102,9 +109,17 @@ if "$SERVICE_GENERATE_API" = true; then
             exit 1
         fi
     fi
+
+    if ! sh "$RECIPE_PATH_API" "$PATH_API"; then
+
+        echo "ERROR: Recipe failed '$RECIPE_PATH_API'"
+        exit 1
+    fi
 fi
 
 if "$SERVICE_GENERATE_IMPL" = true; then
+
+    PATH_IMPL="$SERVICE_PATH/Impl"
 
     if ! test -e "$PATH_IMPL"; then
 
@@ -113,7 +128,13 @@ if "$SERVICE_GENERATE_IMPL" = true; then
             echo "ERROR: Could not create '$PATH_IMPL'"
             exit 1
         fi
-    fi    
+    fi
+
+    if ! sh "$RECIPE_PATH_IMPL" "$PATH_IMPL"; then
+
+        echo "ERROR: Recipe failed '$RECIPE_PATH_IMPL'"
+        exit 1
+    fi
 fi
 
 echo "ERROR: Services Toolkit, to be implemented"
