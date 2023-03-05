@@ -89,5 +89,32 @@ fi
 
 echo "Service recipe: $SERVICE_RECIPE"
 
+PATH_API="$SERVICE_PATH/API"
+PATH_IMPL="$SERVICE_PATH/Impl"
+
+if "$SERVICE_GENERATE_API" = true; then
+
+    if ! test -e "$PATH_API"; then
+
+        if ! mkdir -p "$PATH_API"; then
+
+            echo "ERROR: Could not create '$PATH_API'"
+            exit 1
+        fi
+    fi
+fi
+
+if "$SERVICE_GENERATE_IMPL" = true; then
+
+    if ! test -e "$PATH_IMPL"; then
+
+        if ! mkdir -p "$PATH_IMPL"; then
+
+            echo "ERROR: Could not create '$PATH_IMPL'"
+            exit 1
+        fi
+    fi    
+fi
+
 echo "ERROR: Services Toolkit, to be implemented"
 exit 1
