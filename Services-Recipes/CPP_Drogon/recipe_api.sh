@@ -34,6 +34,11 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
     echo "Initializing Software Toolkit"
 
+    # FIXME:
+    # Initializing Software Toolkit
+    # Services-Recipes/CPP_Drogon/recipe_api.sh: line 37: sh: command not found
+    # ERROR: Software Toolkit not initialized
+    # ERROR: Recipe failed 'Services-Recipes/CPP_Drogon/recipe_api.sh'
     if sh $SCRIPT_TOOLKIT_INIT $PATH $SERVICE_NAME; then
 
         echo "Software Toolkit initialized"
