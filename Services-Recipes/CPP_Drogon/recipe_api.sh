@@ -30,7 +30,11 @@ SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
 
 echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
-if ! test -e "$SCRIPT_TOOLKIT_INIT"; then
+if test -e "$SCRIPT_TOOLKIT_INIT"; then
+
+    echo "Software Toolkit initialization script '$SCRIPT_TOOLKIT_INIT'"
+
+else
 
     echo "ERROR: Software Toolkit initialization script not found at '$SCRIPT_TOOLKIT_INIT'"
     exit 1
