@@ -34,7 +34,7 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
     echo "Initializing Software Toolkit"
 
-    if sh sh $SCRIPT_TOOLKIT_INIT $PATH $SERVICE_NAME; then
+    if sh $SCRIPT_TOOLKIT_INIT $PATH $SERVICE_NAME; then
 
         echo "Software Toolkit initialized"
 
