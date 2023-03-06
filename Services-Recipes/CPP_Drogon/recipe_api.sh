@@ -1,11 +1,12 @@
 #!/bin/bash
 
-SERVICE_NAME_SUFFIX="-API"
-SCRIPT_TOOLKIT_INIT="initialize.sh"
+KIND="API"
+SERVICE_NAME_SUFFIX="-$KIND"
+PATH_SOFTWARE_TOOLKIT="Toolkit"
 
 if [ -z "$1" ]; then
 
-    echo "ERROR: Path is mandatory parameter for the API generating"
+    echo "ERROR: Path is mandatory parameter for the $KIND generating"
     exit 1
 
 else
@@ -15,13 +16,19 @@ fi
 
 if [ -z "$2" ]; then
 
-    echo "ERROR: Name of the service parameter is mandatory"
+    echo "ERROR: Name of the service parameter is mandatory parameter for the $KIND generating"
     exit 1
 fi
 
-SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
+if [ -n "$3" ]; then
 
-echo "CPP Drogon recipe, generate API to '$PATH'"
+    PATH_SOFTWARE_TOOLKIT="$3"
+fi
+
+SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
+SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
+
+echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
 if ! test -e "$SCRIPT_TOOLKIT_INIT"; then
 
@@ -43,5 +50,5 @@ fi
 
 # TODO
 
-echo "ERROR: CPP Drogon API recipe, to be implemented"
+echo "ERROR: CPP Drogon $KIND recipe, to be implemented"
 exit 1
