@@ -32,27 +32,25 @@ echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
 if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
-    echo "Software Toolkit initialization script '$SCRIPT_TOOLKIT_INIT'"
+    echo "Initializing Software Toolkit"
+
+    if sh "$SCRIPT_TOOLKIT_INIT" "$PATH" "$SERVICE_NAME"; then
+
+        echo "Software Toolkit initialized"
+
+    else
+
+        echo "ERROR: Software Toolkit not initialized"
+        exit 1
+    fi
+
+    # TODO: Run Upstreamable
 
 else
 
     echo "ERROR: Software Toolkit initialization script not found at '$SCRIPT_TOOLKIT_INIT'"
     exit 1
 fi
-
-echo "Initializing Software Toolkit"
-
-if sh "$SCRIPT_TOOLKIT_INIT" "$PATH" "$SERVICE_NAME"; then
-
-    echo "Software Toolkit initialized"
-
-else
-
-    echo "ERROR: Software Toolkit not initialized"
-    exit 1
-fi
-
-# TODO: Run Upstreamable
 
 # TODO: Further
 
