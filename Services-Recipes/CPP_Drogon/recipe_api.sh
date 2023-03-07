@@ -3,6 +3,7 @@
 KIND="API"
 SERVICE_NAME_SUFFIX="-$KIND"
 PATH_SOFTWARE_TOOLKIT="Toolkit"
+PATH_UPSTREAMABLE="Upstreamable"
 
 if [ -z "$1" ]; then
 
@@ -25,9 +26,14 @@ if [ -n "$3" ]; then
     PATH_SOFTWARE_TOOLKIT="$3"
 fi
 
+if [ -n "$4" ]; then
+
+    PATH_UPSTREAMABLE="$4"
+fi
+
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
 SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
-SCRIPT_UPSTREAMS_INIT="$PATH_SOFTWARE_TOOLKIT/Upstreamable/install_upstreams.sh"
+SCRIPT_UPSTREAMS_INIT="$PATH_UPSTREAMABLE/install_upstreams.sh"
 
 echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
