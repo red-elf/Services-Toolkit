@@ -33,7 +33,7 @@ echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
 if test -e "$PATH_SOFTWARE_TOOLKIT/$SCRIPT_TOOLKIT_INIT"; then
 
-    echo "Initializing Software Toolkit"
+    echo "Initializing Software Toolkit, path: $PATH_SOFTWARE_TOOLKIT"
 
     if cd "$PATH_SOFTWARE_TOOLKIT" && "$SCRIPT_TOOLKIT_INIT" "$PATH" "$SERVICE_NAME" && cd "$HERE"; then
 
