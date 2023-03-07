@@ -1,6 +1,7 @@
 #!/bin/bash
 
-PATH_SOFTWARE_TOOLKIT="Toolkit"
+HERE="$(pwd)"
+PATH_SOFTWARE_TOOLKIT="$HERE/Toolkit"
 
 if [ -z "$1" ]; then
 
