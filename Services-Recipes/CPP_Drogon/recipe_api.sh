@@ -49,7 +49,7 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
         if "$SCRIPT_UPSTREAMS_INIT"; then
 
-            echo "Software Toolkit upstreams initialized"
+            echo "Software Toolkit upstreams failed to initialized"
 
         else
 

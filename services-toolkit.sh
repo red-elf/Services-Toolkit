@@ -2,7 +2,6 @@
 
 HERE="$(pwd)"
 PATH_SOFTWARE_TOOLKIT="$HERE/Toolkit"
-PATH_UPSTREAMABLE="$HERE/Upstreamable"
 
 if [ -z "$1" ]; then
 
