@@ -3,6 +3,7 @@
 KIND="API"
 SERVICE_NAME_SUFFIX="-$KIND"
 PATH_SOFTWARE_TOOLKIT="Toolkit"
+PATH_UPSTREAMABLE="Upstreamable"
 
 if [ -z "$1" ]; then
 
@@ -27,10 +28,7 @@ fi
 
 if [ -n "$4" ]; then
 
-    PATH_UPSTREAMABLE="$4"
-else
-
-    PATH_UPSTREAMABLE="$PATH/Upstreamable"
+    PATH_UPSTREAMABLE="$4"    
 fi
 
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
@@ -47,7 +45,7 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
         echo "Software Toolkit initialized"
 
-        if "$SCRIPT_UPSTREAMS_INIT"; then
+        if cd "$PATH" && "$SCRIPT_UPSTREAMS_INIT" && echo "We are here:" && pwd; then
 
             echo "Software Toolkit upstreams failed to initialized"
 
