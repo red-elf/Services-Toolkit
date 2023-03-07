@@ -1,6 +1,7 @@
 #!/bin/bash
 
 KIND="API"
+HERE="$(pwd)"
 SERVICE_NAME_SUFFIX="-$KIND"
 PATH_SOFTWARE_TOOLKIT="Toolkit"
 
@@ -26,15 +27,15 @@ if [ -n "$3" ]; then
 fi
 
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
-SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
+SCRIPT_TOOLKIT_INIT="initialize.sh"
 
 echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
-if test -e "$SCRIPT_TOOLKIT_INIT"; then
+if test -e "$PATH_SOFTWARE_TOOLKIT/$SCRIPT_TOOLKIT_INIT"; then
 
     echo "Initializing Software Toolkit"
 
-    if "$SCRIPT_TOOLKIT_INIT" "$PATH" "$SERVICE_NAME"; then
+    if cd "$PATH_SOFTWARE_TOOLKIT" && "$SCRIPT_TOOLKIT_INIT" "$PATH" "$SERVICE_NAME" && cd "$HERE"; then
 
         echo "Software Toolkit initialized"
 
