@@ -27,6 +27,7 @@ fi
 
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
 SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
+SCRIPT_UPSTREAMS_INIT="$PATH_SOFTWARE_TOOLKIT/Upstreamable/install_upstreams.sh"
 
 echo "CPP Drogon recipe, generate $KIND to '$PATH'"
 
@@ -38,13 +39,21 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
         echo "Software Toolkit initialized"
 
+        if "$SCRIPT_UPSTREAMS_INIT"; then
+
+            echo "Software Toolkit upstreams initialized"
+
+        else
+
+            echo "ERROR: Software Toolkit upstreams not initialized"
+            exit 1
+        fi
+
     else
 
         echo "ERROR: Software Toolkit not initialized"
         exit 1
     fi
-
-    # TODO: Run Upstreamable
 
 else
 
