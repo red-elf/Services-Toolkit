@@ -114,7 +114,7 @@ if "$SERVICE_GENERATE_API" = true; then
         fi
     fi
 
-    if ! sh "$RECIPE_PATH_API" "$PATH_API" "$SERVICE_NAME" "$PATH_SOFTWARE_TOOLKIT" "$PATH_UPSTREAMABLE"; then
+    if ! sh "$RECIPE_PATH_API" "$PATH_API" "$SERVICE_NAME" "$PATH_SOFTWARE_TOOLKIT"; then
 
         echo "ERROR: Recipe failed '$RECIPE_PATH_API'"
         exit 1
@@ -134,7 +134,7 @@ if "$SERVICE_GENERATE_IMPL" = true; then
         fi
     fi
 
-    if ! sh "$RECIPE_PATH_IMPL" "$PATH_IMPL" "$SERVICE_NAME" "$PATH_SOFTWARE_TOOLKIT" "$PATH_UPSTREAMABLE"; then
+    if ! sh "$RECIPE_PATH_IMPL" "$PATH_IMPL" "$SERVICE_NAME" "$PATH_SOFTWARE_TOOLKIT"; then
 
         echo "ERROR: Recipe failed '$RECIPE_PATH_IMPL'"
         exit 1

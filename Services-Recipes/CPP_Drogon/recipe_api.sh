@@ -3,7 +3,6 @@
 KIND="API"
 SERVICE_NAME_SUFFIX="-$KIND"
 PATH_SOFTWARE_TOOLKIT="Toolkit"
-PATH_UPSTREAMABLE="Upstreamable"
 
 if [ -z "$1" ]; then
 
@@ -29,6 +28,9 @@ fi
 if [ -n "$4" ]; then
 
     PATH_UPSTREAMABLE="$4"
+else
+
+    PATH_UPSTREAMABLE="$PATH/Upstreamable"
 fi
 
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
