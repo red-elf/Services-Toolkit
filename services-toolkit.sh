@@ -139,6 +139,3 @@ if "$SERVICE_GENERATE_IMPL" = true; then
         exit 1
     fi
 fi
-
-echo "ERROR: Services Toolkit, to be implemented"
-exit 1

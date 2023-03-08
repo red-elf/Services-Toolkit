@@ -1,7 +1,8 @@
 #!/bin/bash
 
 KIND="Impl"
-SCRIPT_COMMON="common.sh"
+HERE="$(dirname -- "${BASH_SOURCE[0]}")"
+SCRIPT_COMMON="$HERE/common.sh"
 
 if ! test -e "$SCRIPT_COMMON"; then
 
