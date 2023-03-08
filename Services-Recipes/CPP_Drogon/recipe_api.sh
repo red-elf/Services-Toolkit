@@ -45,16 +45,6 @@ if test -e "$SCRIPT_TOOLKIT_INIT"; then
 
         echo "Software Toolkit initialized"
 
-        if cd "$PATH" && "$SCRIPT_UPSTREAMS_INIT" && echo "We are here:" && pwd; then
-
-            echo "Software Toolkit upstreams failed to initialized"
-
-        else
-
-            echo "ERROR: Software Toolkit upstreams not initialized"
-            exit 1
-        fi
-
     else
 
         echo "ERROR: Software Toolkit not initialized"
