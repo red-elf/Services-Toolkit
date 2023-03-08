@@ -4,7 +4,11 @@ KIND="API"
 HERE="$(dirname -- "${BASH_SOURCE[0]}")"
 SCRIPT_COMMON="$HERE/common.sh"
 
-if ! test -e "$SCRIPT_COMMON"; then
+if test -e "$SCRIPT_COMMON"; then
+
+    . "$SCRIPT_COMMON"
+
+else
 
     echo "ERROR: Script does not exist '$SCRIPT_COMMON'"
     exit 1
@@ -33,7 +37,7 @@ fi
 SERVICE_NAME="$2$SERVICE_NAME_SUFFIX"
 SCRIPT_TOOLKIT_INIT="$PATH_SOFTWARE_TOOLKIT/initialize.sh"
 
-if ! "$SCRIPT_COMMON" "$KIND" "$PATH"; then
+if ! INSTALL_RECIPE "$KIND" "$PATH"; then
 
     exit 1
 fi
