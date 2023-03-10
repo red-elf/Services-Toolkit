@@ -8,4 +8,4 @@ if ! test -e "$SCRIPT_TOOLKIT"; then
     exit 1
 fi
 
-sh "$SCRIPT_TOOLKIT" "Test Service" ~/Documents/Temp/Test_Modules/Tmp true true CPP_Drogon
+sh "$SCRIPT_TOOLKIT" "TestService" ~/Documents/Temp/Test_Modules/Tmp true true CPP_Drogon
