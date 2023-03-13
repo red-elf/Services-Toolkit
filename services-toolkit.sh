@@ -21,14 +21,13 @@ if [ -z "$3" ]; then
     exit 1
 else
 
-    if "$3" = true || $3 = false; then
+    if "$3" = true; then
 
         SERVICE_GENERATE_API="$3"
 
     else
 
-        echo "ERROR: Generate API parameter is invalid: $3"
-        exit 1
+        SERVICE_GENERATE_API=false
     fi
 fi
 
@@ -38,14 +37,13 @@ if [ -z "$4" ]; then
     exit 1
 else
 
-    if "$4" = true || $4 = false; then
+    if "$4" = true; then
 
         SERVICE_GENERATE_IMPL="$4"
 
     else
 
-        echo "ERROR: Generate impl. parameter is invalid: $4"
-        exit 1
+        SERVICE_GENERATE_IMPL=false
     fi
 fi
 
