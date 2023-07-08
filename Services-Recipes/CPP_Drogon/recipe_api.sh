@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KIND="API"
-HERE="$(dirname -- "${BASH_SOURCE[0]}")"
+HERE="$(dirname -- "$0")"
 SCRIPT_COMMON="$HERE/common.sh"
 
 if test -e "$SCRIPT_COMMON"; then
