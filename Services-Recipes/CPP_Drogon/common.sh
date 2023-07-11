@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function INSTALL_RECIPE {
+INSTALL_RECIPE() {
 
     if [ -z "$1" ]; then
 
